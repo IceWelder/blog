@@ -1,8 +1,11 @@
-"use client";
-import { useState } from "react";
+"use client"
+import Link from 'next/link';
+import React, { useState } from "react";
+
+type Post = string;
 
 const BlogPage = () => {
-  const [posts, setPosts] = useState<string[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [newPost, setNewPost] = useState<string>("");
   const [editPostIndex, setEditPostIndex] = useState<number | null>(null);
 
@@ -32,27 +35,35 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto mt-8 p-4 flex">
-      <div className="w-1/4 pr-4">
+    <div className="max-w-6xl mx-auto mt-8 p-4 flex flex-wrap">
+      <div className="w-full sm:w-1/2 md:w-1/4 pr-4">
         <div className="p-4 border rounded bg-gray-600 text-white h-screen">
           <h1 className="text-2xl font-semibold mb-2">Fóruns</h1>
           <ul className="space-y-2">
-            <li className="text-black border-b border-green-600 p-2 hover:bg-blue-500 transition duration-300">
-              Fórum 1
-            </li>
-            <li className="text-black border-b border-green-600 p-2 hover:bg-blue-500 transition duration-300">
-              Fórum 2
-            </li>
-            <li className="text-black border-b border-green-600 p-2 hover:bg-blue-500 transition duration-300">
-              Fórum 3
-            </li>
-            <li className="text-black border-b border-green-600 p-2 hover:bg-blue-500 transition duration-300">
-              Fórum 4
-            </li>
+            <Link href="#">
+              <li className="text-white border-b border-blue-600 p-2 hover:bg-gray-500 transition duration-300">
+                Fórum 1
+              </li>
+            </Link>
+            <Link href="#">
+              <li className="text-white border-b border-blue-600 p-2 hover:bg-gray-500 transition duration-300">
+                Fórum 1
+              </li>
+            </Link>
+            <Link href="#">
+              <li className="text-white border-b border-blue-600 p-2 hover:bg-gray-500 transition duration-300">
+                Fórum 1
+              </li>
+            </Link>
+            <Link href="#">
+              <li className="text-white border-b border-blue-600 p-2 hover:bg-gray-500 transition duration-300">
+                Fórum 1
+              </li>
+            </Link>
           </ul>
         </div>
       </div>
-      <div className="w-1/2">
+      <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4">
         <div className="mb-4">
           <textarea
             className="w-full p-2 border rounded"
@@ -62,7 +73,7 @@ const BlogPage = () => {
           ></textarea>
           <div className="mt-2">
             <button
-              className="px-4 py-2 bg-gray-500 text-white rounded-full hover:bg-blue-400"
+              className="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-400"
               onClick={handlePostSubmit}
             >
               {editPostIndex !== null ? "Editar Postagem" : "Criar Postagem"}
@@ -91,14 +102,25 @@ const BlogPage = () => {
           ))}
         </div>
       </div>
-      <div className="w-1/4 pl-4">
+      <div className="w-full sm:w-1/2 md:w-1/4 lg:w-1/4 pl-4 trending-section">
         <div className="p-7 border rounded bg-gray-500 text-white">
-          <h2 className="text-2xl font-bold mb-4">Trending Topics </h2>
-
+          <h2 className="text-2xl font-bold mb-4">Trending Topics</h2>
           <ul>
-            <li className="mb-2 text-white-600">TOP 1</li>
-            <li className="mb-2 text-white-600">TOP 2</li>
-            <li className="mb-2 text-white-600">TOP 3</li>
+          <Link href="#">
+              <li className="text-white border-b space-y-2 border-blue-600 p-2 hover:bg-gray-300 transition duration-300">
+                TOP 1
+              </li>
+            </Link>
+            <Link href="#">
+              <li className="text-white border-b space-y-2 border-blue-600 p-2 hover:bg-gray-300 transition duration-300">
+                TOP 1
+              </li>
+            </Link>
+            <Link href="#">
+              <li className="text-white border-b space-y-2 border-blue-600 p-2 hover:bg-gray-300 transition duration-300">
+                TOP 1
+              </li>
+            </Link>
           </ul>
         </div>
       </div>
